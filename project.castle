@@ -1,4 +1,6 @@
 ---
 main: main.lua
-name: My New Project
+name: Castle Tutorial
+owner: liquidream
+description: The tutorial code
 
