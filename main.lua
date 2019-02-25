@@ -22,18 +22,20 @@ end
 function love.update(dt)
   total_time_elapsed = total_time_elapsed + dt
   
+  local speed = 256
+  
   if love.keyboard.isDown("right") then
-   playerPos.x = playerPos.x + 256 * dt
+   playerPos.x = playerPos.x + speed * dt
   end
   if love.keyboard.isDown("left") then
-   playerPos.x = playerPos.x - 256 * dt
+   playerPos.x = playerPos.x - speed * dt
   end
   if love.keyboard.isDown("up") then
-   playerPos.y = playerPos.y - 256 * dt
+   playerPos.y = playerPos.y - speed * dt
    --print("up arrow pressed at "..total_time_elapsed)
   end
   if love.keyboard.isDown("down") then
-   playerPos.y = playerPos.y + 256 * dt
+   playerPos.y = playerPos.y + speed * dt
   end
 end
 
