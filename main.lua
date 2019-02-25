@@ -11,10 +11,11 @@ local playerPos = {
 }
 
 function love.draw()
-  local y_offset = 8 * math.sin(total_time_elapsed * 3)
-  love.graphics.setColor(1.0, 0.4, 0.4, 1.0)
-  --love.graphics.setColor(0.4, 0.4, 1.0, 1.0)
-  love.graphics.circle("fill", playerPos.x, playerPos.y, 20, 32)
+ love.graphics.setColor(1.0, 0.4, 0.4, 1.0)
+ --love.graphics.setColor(0.4, 0.4, 1.0, 1.0)
+ love.graphics.circle("fill", playerPos.x, playerPos.y, 20, 32)
+ 
+ --local y_offset = 8 * math.sin(total_time_elapsed * 3)
   -- love.graphics.print('Edit main.lua to get started!', 400, 300 + y_offset)
   -- love.graphics.print('Press Cmd/Ctrl + R to reload.', 400, 316 + y_offset)
 end
@@ -23,6 +24,7 @@ function love.update(dt)
   total_time_elapsed = total_time_elapsed + dt
   
   local speed = 256
+  local y_offset = 8 * math.sin(total_time_elapsed * 3)
   
   if love.keyboard.isDown("right") then
    playerPos.x = playerPos.x + speed * dt
@@ -37,5 +39,8 @@ function love.update(dt)
   if love.keyboard.isDown("down") then
    playerPos.y = playerPos.y + speed * dt
   end
+
+  -- playing around
+  --playerPos.y = playerPos.y + y_offset
 end
 
