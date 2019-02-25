@@ -5,14 +5,35 @@
 -- https://love2d-community.github.io/love-api/
 
 local total_time_elapsed = 0
+local playerPos = {
+ x = 100,
+ y = 100
+}
 
 function love.draw()
   local y_offset = 8 * math.sin(total_time_elapsed * 3)
-  love.graphics.print('Edit main.lua to get started!', 400, 300 + y_offset)
-  love.graphics.print('Press Cmd/Ctrl + R to reload.', 400, 316 + y_offset)
+  love.graphics.setColor(1.0, 0.4, 0.4, 1.0)
+  --love.graphics.setColor(0.4, 0.4, 1.0, 1.0)
+  love.graphics.circle("fill", playerPos.x, playerPos.y, 20, 32)
+  -- love.graphics.print('Edit main.lua to get started!', 400, 300 + y_offset)
+  -- love.graphics.print('Press Cmd/Ctrl + R to reload.', 400, 316 + y_offset)
 end
 
 function love.update(dt)
   total_time_elapsed = total_time_elapsed + dt
+  
+  if love.keyboard.isDown("right") then
+   playerPos.x = playerPos.x + 256 * dt
+  end
+  if love.keyboard.isDown("left") then
+   playerPos.x = playerPos.x - 256 * dt
+  end
+  if love.keyboard.isDown("up") then
+   playerPos.y = playerPos.y - 256 * dt
+   --print("up arrow pressed at "..total_time_elapsed)
+  end
+  if love.keyboard.isDown("down") then
+   playerPos.y = playerPos.y + 256 * dt
+  end
 end
 
